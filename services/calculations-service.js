@@ -113,6 +113,23 @@ const progress = async (progress) => {
     }
 }
 
+const getProgress = async (userId, progressId) => {
+    try {
+        const progress = await DailyProgress.findAll({
+            where: {
+                calculationId: progressId,
+                userId: userId
+            }
+        });
+        if (progress.length > 0) {
+            return progress;
+        }
+        return null;
+    } catch (error) {
+        throw new Error(error);
+    }
+}
+
 
 export default {
     create,
@@ -122,4 +139,5 @@ export default {
     update,
     deleteById, 
     progress,
+    getProgress
 }

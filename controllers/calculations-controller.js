@@ -90,4 +90,15 @@ export default class CalculationsController {
         }
     }
    
+    static async getProgress(req, res) {
+        try {
+            const calculations = await calculationsService.getProgress(req.id, req.params.id);
+            if (!calculations) {
+                return res.status(404).json({ msg: "calculations not found" });
+            }
+            res.status(200).json(calculations);
+        } catch (error) {
+            res.status(500).json({ msg: error.message });
+        }
+    }
 }

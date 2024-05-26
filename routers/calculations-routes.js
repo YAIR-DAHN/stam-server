@@ -14,6 +14,7 @@ export default class UserRouter {
         router.get('/user/:id', userAuth, calculationsController.getByUserId);
         router.put('/:id', userAuth, calculationsController.update); 
         router.put('/progress/:id', userAuth, calculationsController.progress); // עדכון התקדמות
+        router.get('/progress/:id', userAuth, calculationsController.getProgress); // קבלת התקדמות
         // router.delete('/:id',adminAuth, calculationsController.delete);
         router.delete('/:id', userAuth, calculationsController.delete);
    
