@@ -14,7 +14,7 @@ const auth = (req, res, next) => {
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
         const { id, role, email } = decoded
 
-        console.log(`id = ${id}, role = ${role} , email = ${email}`);
+        console.log(`id = ${id}, role = ${role} , email = ${email}, params = ${req.params.id}`);
         const user = User.findOne({ where: { id } })
         if (!user) {
             console.log('Invalid token');
@@ -29,6 +29,8 @@ const auth = (req, res, next) => {
         }
         req.user = user
         req.token = token
+        req.id = req.body.id
+
         console.log(`user = ${user} , token = ${token}`);
     } catch (err) {
         console.log(`Invalid token2 ${err}`);

@@ -5,6 +5,7 @@ import UserRouter from "./routers/user-routes.js";
 // import TestsRouter from "./routers/tests-routes.js";
 import CounterRouter from "./routers/counter-routers.js"; 
 import calculationsRouter from "./routers/calculations-routes.js";
+import ProductsRouter from "./routers/products-routes.js";
 import { syncModels } from "./database/index.js";
 import counterLogin from './middlewares/counterLogin.js'; // קונטרולר של הסטטיסטיקה
 const app = express();
@@ -22,6 +23,7 @@ app.use(cors());
 //routes
 app.use("/users",counterLogin, new UserRouter().getRouter());
 app.use("/calculations",counterLogin, new calculationsRouter().getRouter());
+app.use("/Products",counterLogin, new ProductsRouter().getRouter());
 // app.use("/tests",counterLogin, new TestsRouter().getRouter());
 app.use("/counter", new CounterRouter().getRouter()); // קונטרולר של הסטטיסטיקה
 

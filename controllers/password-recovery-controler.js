@@ -33,7 +33,7 @@ export default class CounterController {
                 res.status(200).json(login);
             }
             else{
-                res.status(200).json({msg: "הקוד שגוי"});
+                res.status(401).json({msg: "הקוד שגוי"});
             }
         }
         catch(error){

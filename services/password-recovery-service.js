@@ -27,7 +27,8 @@ const findUser = async ({ userPhone, email, sender }) => {
                 await sendWhatsApp(userPhone, vCode); // שליחת קוד אימות באמצעות WhatsApp
             }
             else if (sender === "email") {
-                await sendEmail(email, vCode); // שליחת קוד אימות באמצעות Email
+                console.log(`user email: ${user.userEmail}`);
+                await sendEmail(user.userEmail, vCode); // שליחת קוד אימות באמצעות Email
             }
             else if (sender === "voice") {
                 await sendVoice(userPhone, vCode); // שליחת קוד אימות באמצעות שיחה קולית

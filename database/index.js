@@ -6,6 +6,10 @@ import LoginCounter from "./models/login-counter.js"; //טבלת מונה כני
 import PasswordRecovery from "./models/password-recovery-model.js" //טבלת שחזור סיסמא
 import Calculations from "./models/calculations-model.js"; //טבלת חישובים
 import DailyProgress from "./models/daily-progress-model.js"; //טבלת התקדמות יומית
+import product from "./models/products/products-model.js"; //טבלת מוצרים
+import productCategoryMapping from "./models/products/ProductCategoryMapping-model.js"; //טבלת קישור קטגוריה למוצרים
+import category from "./models/products/category-model.js"; //טבלת קטגוריות
+import feedback from "./models/products/feedback-model.js"; //טבלת משוב
 
 
 //connect to db and sync models
@@ -24,4 +28,4 @@ const syncModels = async () => {
     }
 }
 
-export { syncModels, User, LoginCounter, PasswordRecovery, Calculations, DailyProgress, sequelize };
+export { syncModels, User, LoginCounter, PasswordRecovery, Calculations, DailyProgress, product, productCategoryMapping, category, feedback, sequelize };

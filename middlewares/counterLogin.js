@@ -12,7 +12,7 @@ const counterLogin = async (req, res, next,) => {
     const useragent = req.headers['user-agent'];
     req.useragent = useragent;
     const result = detector.detect(useragent);
-    console.log('result parse', result);
+    // console.log('result parse', result);
 
     let userName = 'משתמש אנונימי';
     let userId = 0;
